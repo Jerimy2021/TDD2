@@ -1,0 +1,23 @@
+#no permitir el pycache
+__pycache__/
+*.pyc
+*.pytest_cache/
+
+#no permitir el cache de node
+node_modules/
+npm-debug.log
+yarn-error.log
+
+
+#no permitir el cache de python
+*.py[cod]
+*.coverage
+.coverage
+
+#no permitir el sample creo por pybind11
+*.so
+build/
+
+#no permitir debuguing dSYM
+*.dSYM/
+
