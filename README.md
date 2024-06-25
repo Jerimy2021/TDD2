@@ -105,3 +105,50 @@ locust -f locustfile.py
 
 Yo realize un streest test con varios usuarios y obtuve el siguiente resultado.
 ![locust](./img/locust.png)
+
+Para ver las peticiones y respuestas de la API debemos ingresar a la siguiente direccion en nuestro navegador y enviar las peticiones que deseemos.
+por ejemplo registramos un data del sensor con el siguiente json con curl.
+
+```bash
+curl -X POST "http://localhost:8000/register_many_sensors" -H "Content-Type: application/json" -d '[
+    {
+        "id": "1",
+        "type_sensor": "temperature",
+        "value": "23.5"
+    },
+    {
+        "id": "2",
+        "type_sensor": "humidity",
+        "value": "60"
+    }
+]'
+```
+
+Debemos tener esta imagen en la terminal
+![register](./img/register_many.png)
+
+Para obtener el get highest accumulated value debemos ingresar el siguiente comando con curl.
+
+```bash
+curl -X GET "http://localhost:8000/get_highest_accumulated/temperature"
+```
+
+Debemos tener esta imagen en la terminal
+![get](./img/get_highest.png)
+
+Para obtener el get ultraviolet que no se encuentra registrado y obtener la siguiente imagen en la terminal.
+
+```bash
+curl -X GET "http://localhost:8000/get_highest_accumulated/ultravioletradition"
+```
+
+Debemos tener esta imagen en la terminal
+![get](./img/get_ultraviolet.png)
+
+##### Generar documentacion
+
+Use la libreria sphinx para generar la documentacion del proyecto, esta parte fue algo complicada pero se logro ejecutar el siguiente comando para generar el html de la documentacion:
+
+```bash
+make html
+```
